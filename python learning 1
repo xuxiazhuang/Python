@@ -1,0 +1,383 @@
+python
+
+my_range=range(1,9)
+print (my_range)
+
+    range(1, 9)
+
+
+#press shift tab can give you explaination about founction
+#range(i,j) indicates the range from i to j-1
+
+for my_number in my_range:
+    print(my_number)
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+print(my_number)
+```8
+
+#notice the location of print
+
+###list is sequence with elements
+
+
+```python
+pets = ['dogs','cats','fish']
+print (pets)
+```
+['dogs', 'cats', 'fish']
+
+```python
+print (pets[0])
+```dogs
+
+print(pets[0:1])
+
+    ['cats']
+
+pets.sort()
+print(pets)
+
+    ['cats', 'dogs', 'fish', 'shark', 'shark', 'shark']
+
+pets.append('shark')
+print(pets)
+
+['cats', 'dogs', 'fish', 'shark', 'shark', 'shark', 'shark', 'shark']
+
+# I ran 4 more times
+```
+# append() :add at the end
+```
+
+
+```python
+pets.remove('shark')
+print(pets)
+
+['cats', 'dogs', 'fish', 'shark', 'shark', 'shark']
+
+print (len(pets))
+    
+7
+
+####len(): the lenth
+
+
+pets.index('dogs')
+```
+    1
+
+
+
+#######index()  to show the location
+
+
+pets.append(['fish2','fish3'])
+print (pets)
+
+['cats', 'dogs', 'fish', 'shark', 'shark', 'shark', ['fish2', 'fish3']]
+
+
+
+#######append()  to add at the end
+
+
+```python
+pets[6][1]
+    
+    'fish3'
+
+pets.extend(['fish2','fish3'])
+print (pets)
+
+    ['cats',
+     'dogs',
+     'fish',
+     'shark',
+     'shark',
+     'shark',
+     ['fish2', 'fish3'],
+     'fish2',
+     'fish3']
+
+
+
+#### to notice the difference of append() and extend()
+
+
+```python
+s=pets.pop()
+print (s)
+
+'fish3'
+
+# pop: the end element
+
+print (pets)
+```
+     ['cats',
+     'dogs',
+     'fish',
+     'shark',
+     'shark',
+     'shark',
+     ['fish2', 'fish3'],
+     'fish2']
+
+print (pets.pop())
+```
+'fish2'
+
+print (pets.pop())
+
+['fish2', 'fish3']
+
+pets.pop()
+print (pets)
+
+['cats', 'dogs', 'fish', 'shark']
+
+print (pets[-1])
+
+'shark'
+
+# [-1] reverse founction
+
+a_value=2
+del a_value
+print(a_value)
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-52-b11191176d0d> in <module>()
+          1 a_value=2
+          2 del a_value
+    ----> 3 print(a_value)
+    
+
+    NameError: name 'a_value' is not defined
+
+
+###del delete element
+
+del pets[3]
+
+print (pets)
+```
+['cats', 'dogs', 'fish']
+
+
+school_grades=[['bob',[20,20,25]],['nora',[18,17,20]],['jerry',[14,16,20]]]
+print (school_grades[0])
+
+    ['bob', [20, 20, 25]]
+
+
+print(school_grades[0][1])
+
+    [20, 20, 25]
+
+
+print(school_grades[1:3])
+
+ [['nora', [18, 17, 20]], ['jerry', [14, 16, 20]]]
+
+
+my_tuble=(60,75,'yellow')
+print (my_tuble)
+
+(60, 75, 'yellow')
+
+
+
+type(my_tuble)
+```
+tuple
+
+####type()  to show the type
+
+my_tuble[-1]
+
+'yellow'
+
+
+
+------------------------------------
+set & dicionary
+
+pet_set={'dogs','cats','dogs'}
+print (pet_set)
+```
+
+{'cats', 'dogs'}
+
+
+
+#### A Set is an unordered collection data type that is iterable, mutable, and has no duplicate elements.
+
+
+pet_set.add('fish')
+print (pet_set)
+
+{'cats', 'dogs', 'fish'}
+
+pet_set[0]
+
+
+    ---------------------------------------------------------------------------
+
+    TypeError                                 Traceback (most recent call last)
+
+    <ipython-input-8-14ed3cc1d290> in <module>()
+    ----> 1 pet_set[0]
+    
+
+    TypeError: 'set' object does not support indexing
+
+
+notice:'set' object does not support indexing
+
+
+ratings = set([1,2,3,2,2,1,4,1])
+print (ratings)
+
+{1, 2, 3, 4}
+
+5 in ratings
+
+False
+
+#### to confirm whether 5 exists in the set
+
+1 in ratings
+
+True
+
+type(ratings)
+
+set
+
+a=[100,23,3,14,5]
+print (a[1])
+
+23
+
+a.sort()
+print (a[-2])
+
+23
+
+####sort() : to rank
+
+a.sort(reverse=True)
+print (a[1])
+
+23
+
+a.sort()
+print (a)
+
+[3, 5, 14, 23, 100]
+
+
+
+# a_dict = {key:value,another_key:another value}
+
+
+record_dict={'name':'Aysin','heigh':180,'class':'802'}
+record_dict
+```
+ {'name': 'Aysin', 'heigh': 180, 'class': '802'}
+
+```python
+record_dict['name']
+```
+    'Aysin'
+
+record_dict['favorite_rest']=['saint mary cafe','subway','tomatoes']
+```
+
+##### to add one pair
+
+record_dict
+```
+    {'name': 'Aysin',
+     'heigh': 180,
+     'class': '802',
+     'favorite_rest': ['saint mary cafe', 'subway', 'tomatoes']}
+
+
+record_dict['favorite_rest']
+```
+
+['saint mary cafe', 'subway', 'tomatoes']
+
+record_dict['favorite_rest'][0]
+
+ 'saint mary cafe'
+
+
+
+#######()tuple []list, index {} set,dictionary
+A tuple is a sequence of items that can't be changed (immutable).
+A list is a sequence of items that can be changed (mutable).
+A dictionary is a list of key-value pairs, with unique keys (mutable).
+
+
+print(record_dict.keys())
+
+dict_keys(['name', 'heigh', 'class', 'favorite_rest'])
+
+record2_dict={'name':'mani','heigh':190,'class':'802'}
+```
+list_dict=[record_dict,record2_dict]
+
+print (list_dict)
+
+     [{'name': 'Aysin',
+      'heigh': 180,
+      'class': '802',
+      'favorite_rest': ['saint mary cafe', 'subway', 'tomatoes']},
+     {'name': 'mani', 'heigh': 190, 'class': '802'}]
+
+
+
+#######define founction
+
+def say_hello(name):
+    print('Goodmorning '+name)
+say_hello('John')
+
+  Goodmorning John
+    
+def say_hello(name,salutation):
+    print(salutation+' '+name)
+say_hello('John','Good morning')
+
+    Good morning John
+
+def contains_elephant(a_list):
+    return 'elephant' in a_list
+zoo1=['tigers','lion']
+zoo2=['elephant','lion']
+zoo1_with_ele=contains_elephant(zoo1)
+print(zoo1_with_ele)
+    False
+def contains_elephant(a_list):
+    check='elephant' in a_list
+    return check
+zoo2_with_ele=contains_elephant(zoo2)
+print (zoo2_with_ele )
+True
+
