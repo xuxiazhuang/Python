@@ -1,0 +1,138 @@
+# The mean of a set of numbers is the sum of the numbers divided by the
+# number of numbers. Write a procedure, list_mean, which takes a list of numbers
+# as its input and return the mean of the numbers in the list.
+
+# Hint: You will need to work out how to make your division into decimal
+# division instead of integer division. You get decimal division if any of
+# the numbers involved are decimals.
+
+def list_mean(a):
+    s=0
+    for i in a:
+        s=s+i
+        p=s/float(len(a))
+    return p
+print list_mean([1,2,3,4])
+print 5%2  ####### % indicates decimal     
+print 2.55/float(2)###### to keep decimal
+
+# A list is symmetric if the first row is the same as the first column,
+# the second row is the same as the second column and so on. Write a
+# procedure, symmetric, which takes a list as input, and returns the
+# boolean True if the list is symmetric and False if it is not.
+
+m1 = [
+      [1, 2, 3],
+      [2, 3, 4],
+      [3, 4, 1],
+      [5, 6, 7]
+      ]
+m2 = [
+      ["cat", "dog", "fish"],
+      ["dog", "dog", "fish"],
+      ["fish", "fish", "cat"]
+      ]
+
+def symmetric(a):
+    for i in range(0,len(a)):
+      for j in range (0,len(a[i])):       
+            if a[i][j] != a[j][i]:
+               return False
+    return True
+print symmetric(m2)
+
+def symmetric(a):
+    for i in range(0,len(a)):
+        for j in range (0,len(a[i])): 
+           # print "a[i][1] = " + str(a[i][0])
+           print a[i][0]
+
+def symmetric(a):
+    for i in range(0,len(a)):
+      for j in range (0,len(a[i])):       
+            if a[i][j] != a[j][i]:
+               return False
+    return True
+print symmetric(m2)
+
+def symmetric(a):
+    for i in range(0,len(a)):
+      print 'len(a) =' + str(len(a))
+      print 'range(0,len(a))=' + str(range(0,len(a)))
+      # for j in range (0,len(a[i])):  
+      print 'len(a[i])=' + str (len(a[i])
+      # print range (0,len(a[i]))  
+    #         if a[i][j] != a[j][i]:
+    #            return False
+    # return True
+print symmetric(m1)
+
+
+
+
+
+
+
+m1 = [
+      [1, 2, 3],
+      [5, 3, 4],
+      [3, 6, 1]
+      ]
+ 
+def symmetric(a):######. wrong
+    for i in range(0,len(a)):
+ 
+      print "outerloopx"
+      print "i = " + str(i) + ", a[i] = " + str(a[i])
+      b = a[i]
+        # if i == 0 :
+           # print "a[i][0] = " + str(b[0])
+           # print "a[i][1] = " + str(b[1])
+           # print "a[i][2] = " + str(b[2])
+      for j in range (0,len(a[i])):
+               # print "j = " + str (j)
+            print "a[" + str(i) + "]" + "[" + str(j) + "] = " + str (a[i][j])
+            if i == 1 :
+                 print "a[i][0] = " + str(b[0])
+                 print "a[i][1] = " + str(b[1])
+                 print "a[i][2] = " + str(b[2])
+                 for j in range (0,len(a[i])):
+               # print "j = " + str (j)
+                     print "a[" + str(i) + "]" + "[" + str(j) + "] = " + str (a[i][j])
+        if i == 2 :
+           print "a[i][0] = " + str(b[0])
+           print "a[i][1] = " + str(b[1])
+           print "a[i][2] = " + str(b[2])
+           for j in range (0,len(a[i])):
+               # print "j = " + str (j)
+               print "a[" + str(i) + "]" + "[" + str(j) + "] = " + str (a[i][j])
+ 
+ 
+ 
+ 
+      for j in range(0,)
+        for j in a:s
+          print "innerloopx"
+          print "i = " + str(i)
+          print "j = " + str(j)
+            print a[0][1]
+            break 
+            if a[i][j]!=a[j][i]:
+               return False
+            else:
+              return True
+print symmetric(m1)
+def symmetricx(a):######. wrong
+    for i in a:
+        print "outerloopx"
+        for j in a:
+            print "innerloopx"
+            print "i = " + str(i)
+            print "j = " + str(j)
+            print a[0][1]
+            break
+if a[i][j]!=a[j][i]:
+   return False
+else:
+    return True
+print symmetricx([[1, 2, 3],[2, 3, 4],[3, 4, 1]])
