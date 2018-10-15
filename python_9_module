@@ -1,0 +1,55 @@
+#####Save this code in a file named mymodule.py
+def greeting(name):
+	print ("Hello, " + name)
+
+
+import mymodule
+mymodule.greeting('Rita')
+
+output:
+Hello, Rita
+
+
+#####creat mymodule.py
+person = {"name":"Rita","age":27,"country":"China"}
+print (person)
+
+
+import mymodule
+a = mymodule.person["country"]
+print (a)
+
+output:
+China
+
+import mymodule as x
+a = x.person["age"]
+print (a)
+
+output: 27
+
+# ----------------------------------------------------------------------
+
+import platform
+
+x = platform.system()
+
+print (x)
+
+y = dir(platform)
+
+print(y)
+
+### dir() to list all the function names (or variable names) in a module, 
+####The dir() function can be used on all modules, also the ones you create yourself.
+
+
+
+import datetime
+
+x = datetime.datetime.now()
+y = dir(datetime)
+print (x)
+print (x.year)
+print (x.strftime('%A'))
+print (y)
