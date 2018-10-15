@@ -1,0 +1,110 @@
+# Define a procedure, udacify, that takes as
+# input a string, and returns a string that
+# is an uppercase 'U' followed by the input string.
+# for example, when you enter
+
+# print udacify('dacians')
+
+# the output should be the string 'Udacians'
+def founction(x):
+    a=x[0:]
+    return "U"+a
+print founction('dacians')
+print founction('turn')
+print founction('boat')  
+
+# #find the median
+def bigger(a,b):
+    if a>b:
+       return a
+    else:
+    	return b
+def biggest(a,b,c):
+	return bigger(a,bigger(b,c))
+print biggest(1,2,3)
+def median(a,b,c):
+    big=biggest(a,b,c)
+    if big==a:
+        return bigger(b,c)
+    if big==b:
+    	return bigger(a,c)
+    else:
+    	return bigger(a,b)
+print median(1,2,3)
+print median(7,7,8)
+
+# Define a procedure, countdown, that takes a
+# positive whole number as its input, and prints
+# out a countdown from that number to 1,
+# followed by Blastoff!
+# The procedure should not return anything.
+# For this question, you just need to call 
+# the procedure using the line
+# countdown(3)
+# instead of print countdown(3).
+def countdown(s):#### by rita
+    i=1
+    while i<=s:
+       print i
+       i=i+1
+countdown(3)
+def countdown(n):### answer
+	while n>0:
+	  print n
+	  n=n-1
+countdown(3)
+print 'blastoff'
+# Define a procedure, find_last, that takes as input
+# two strings, a search string and a target string,
+# and returns the last position in the search string
+# where the target string appears, or -1 if there
+# are no occurrences.
+#
+# Example: find_last('aaaa', 'a') returns 3
+
+# Make sure your procedure has a return statement.
+def find_last(s,t):
+	last_pos=-1
+	while True:
+		  pos=s.find(t,last_pos+1)
+		  if pos==-1:
+		  	 return last_pos
+		  last_pos=pos
+print find_last('aaaaaaaa','a')
+
+
+def find_last(s,t):
+	last_pos=-1
+	while True:
+		  pos=s.find(t,last_pos+1)
+		  if pos==-1:
+		  	 return last_pos
+		  last_pos=pos
+print find_last('xxaxweradcadx','a')
+
+
+def find_last(s,t):########important debug
+    times = 0
+    last_pos=-1
+    while True:
+        print "times:" + str(times)
+        print "lp:" + str(last_pos)
+        pos=s.find(t,last_pos+1)
+        print "pos:" + str(pos)
+        if pos==-1:
+            return last_pos
+        last_pos=pos
+        times += 1
+        print '\t'
+print find_last('xxaxweradcadx','a')
+
+
+##############################
+days_in_month=[31,28,31,30,31,30,31,31,30,31,30,31]
+def how_many_days(month):
+    return days_in_month[month-1]
+print how_many_days(1)
+
+beatles=[['john',1940],['paul',1942],['george',1943],['ringo',1940]]
+print beatles[3]
+print beatles[3][0]
