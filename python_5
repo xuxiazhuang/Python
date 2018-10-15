@@ -1,0 +1,114 @@
+p=['h','t','r','p']
+q=p
+p[0] = 'u'
+print p
+
+spy=[0,0,7]
+agent=spy
+print agent[2]+1
+spy[2]=agent[2]+1
+print spy
+print agent
+
+spy=[0,0,7]
+spy[2]=spy[2]+1
+print spy
+
+def replace_spy(p)######how to input a varieble which includes 3 value
+   p[2]=p[2]+1
+   return p
+print replace_spy ([1,4,7])
+
+a=len('udacity')#### len
+print a
+b=len([1,5,6,7])
+print b
+
+def sum_list(p):
+	result=0
+	for e in p:
+		result = result +e
+	return result
+
+print sum_list([1,4,7])
+
+
+def measure_udacity(p):#######for + if, different location of return
+    i=0
+    for e in p:
+        if e[0]=="U":
+           i=i+1
+        return i
+print measure_udacity(['Umika','Umberto'])
+
+def measure_udacity(p):#####
+    i=0
+    for e in p:
+        if e[0]=="U":
+           i=i+1
+    return i
+print measure_udacity(['Umika','Umberto'])
+
+def find_element(a,b):
+    i=0
+    n=len(a)
+    while i<n:
+       if a[i]==b:
+          return i 
+       i=i+1
+    return -1
+print find_element([1,2,3],4)
+
+def find_element(a,b):########find elements for
+	i=0
+	for e in a:
+		if e==b:
+		   return i
+		i=i+1
+	return -1
+print find_element([1,2,3],3)
+
+ 
+p=[0,1,2]
+print p.index(2)######index
+p=[1,2,3,45,22,2]
+print p.index(2)
+print p.index(3)
+
+
+def find_element(p,t):
+    if t in p:
+    	return p.index(t)
+    else:
+    	return -1
+print find_element([1,2,3,45,22,2],3)
+
+def find_element(p,t):
+    if t not in p:
+    	return -1
+    else:
+    	return p.index(t)
+print find_element([1,2,3,45,22,2],3)
+
+
+a=[0,1,2,3]
+b=[4]
+print a+b
+
+def union(a,b):
+    for e in b:
+        if e not in a:
+           a.append(e)
+           return a 
+print union([1,2,3],[2,4,6])
+
+a=[1,2,3]
+# a.pop()
+x=a.pop()
+print x
+
+
+p=[1,2]
+q=[3,4]
+p.append(q)
+print p
