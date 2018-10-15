@@ -1,0 +1,80 @@
+# lambda founction 
+#A lambda function is a small anonymous function.
+#A lambda function can take any number of arguments, but can only have one expression.
+x= lambda a : a +10
+print (x(5))
+
+x= lambda a,b : a*b
+print(x(2,3))
+
+
+def my_founc(n):
+    return lambda a: a * n
+mydoubler = my_founc(2)
+print (mydoubler(5))
+
+
+def my_founc(n):
+ 	return lambda a: a * n
+mydoubler = my_founc(2)
+mytripler = my_founc(3)
+print (mydoubler(5))
+print (mytripler(5))
+#------------------------------------------
+
+#arrays 
+#Arrays are used to store multiple values in one single variable:
+#An array can hold many values under a single name, and you can access the values by referring to an index number.
+
+
+cars = ["Ford", "Volvo", "BMW"]
+cars1="Ford"
+cars2="Volvo"
+cars3="BMW"
+# #creat an array and store the cars in single varieble
+
+# #use for in to loop
+
+for x in cars:
+   print (x)
+
+# Method	Description
+# append()	Adds an element at the end of the list
+# clear()	Removes all the elements from the list
+# copy()	Returns a copy of the list
+# count()	Returns the number of elements with the specified value
+# extend()	Add the elements of a list (or any iterable), to the end of the current list
+# index()	Returns the index of the first element with the specified value
+# insert()	Adds an element at the specified position
+# pop()	Removes the element at the specified position
+# remove()	Removes the first item with the specified value
+# reverse()	Reverses the order of the list
+# sort()	Sorts the list
+
+# ----------------------------------------------
+#A Class is like an object constructor, or a "blueprint" for creating objects.
+
+class person:
+	def __init__(self,name,age):
+		self.name = name
+		self.age = age
+
+p1 = person("John", 36)
+
+print (p1.name)
+print (p1.age)
+
+####__init__double underscore
+###The __init__() function is called automatically every time the class is 
+###being used to create a new object.
+
+class person:
+    def __init__(self,name,age):
+		self.name = name
+		self.age = age
+    
+    def myfunc(abc):
+        print("hello my name is " + abc.name)
+
+p1 = person("John",36)
+p1.myfunc()
