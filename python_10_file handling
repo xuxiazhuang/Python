@@ -1,0 +1,55 @@
+#####open()
+# "r" - Read - Default value. Opens a file for reading, error if the file does not exist
+
+# "a" - Append - Opens a file for appending, creates the file if it does not exist
+
+# "w" - Write - Opens a file for writing, creates the file if it does not exist
+
+# "x" - Create - Creates the specified file, returns an error if the file exists
+
+f = open ("demofile.txt","r")
+print (f.read())
+####read the whole
+
+f = open ("demofile.txt","r")
+print (f.read(5))
+#####read the 5 first characters of the file
+
+f = open ("demofile.txt","r")
+print (f.readline(3))
+#####read 3 lines of the file
+
+f = open("demofile.txt","r")
+for x in f:
+	print(x)
+
+-----------------------------------------------
+f = open ("demofile.txt","w")
+f.write('I love python')
+
+Note: the "w" method will overwrite the entire file.
+
+f = open ("demofile.txt","a")
+f.write('I love python')
+
+Note: Open the file "demofile.txt" and append content to the file:
+
+f = open ("myfile.txt","x")
+
+Note: Create a file called "myfile.txt":
+
+----------------------------------------------------
+
+######delete file & folder
+
+import os
+if os.path.exists("demofile.txt"):
+	os.remove("demofile.txt")
+else:
+	print("The file does not exist")
+
+#####delete folder
+import os
+os.rmdir("myfolder")
+
+Note: You can only remove empty folders.
