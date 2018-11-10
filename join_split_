@@ -1,0 +1,83 @@
+####about create a new set
+
+#####set a empty set, set() not {}
+def numemils(emails):
+    domain_name_number = set()
+    for ele in emails:
+        location = ele.index("@")
+        domain_name=ele[location:]
+        domain_name_number.add(domain_name)
+        
+    return len(domain_name_number)
+print(numemils(["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]))
+
+
+
+###### split founction
+
+change the string into list, break a large string down into smaller chunks, or strings
+
+word = "This is random text we’re going to split apart"
+print (word.split())
+output: ['This', 'is', 'random', 'text', 'we’re', 'going', 'to', 'split', 'apart']
+
+
+x = "red,green,yellow,pink"
+x = x.split(",")
+print(x)
+
+ output: ['red', 'green', 'yellow', 'pink']
+
+y = "red,green,yellow,pink"
+a,b,c,d = y.split(",")
+
+print (a)
+print(b)
+print(c)
+print(d)
+
+output:
+red
+green
+yellow
+pink
+
+###### join founction
+
+The join() method is a string method and 
+returns a string in which the elements of sequence have been joined by str separator.
+
+
+list1 = ["1","2","3","4","5"]
+s = "_"
+print (s.join(list1))
+
+
+output:1_2_3_4_5
+
+
+set1 = {"1","2","3","4","5"}
+s = "/"
+print (s.join(set1))
+ output: 3/2/5/1/4
+
+ ###join with empty string
+list1 = ['g','e','e','k', 's']  
+print("".join(list1)) 
+output: geeks
+
+example:
+def numemails(emails):
+    email_set = set()
+    for email in emails:
+            local_name,domain_name = email.split("@")
+            print("local_name: ",local_name,"domain_name: ",domain_name)
+            a = local_name.split('+')[0].split('.')
+            print ("local_name.split('+')[0]:  ", local_name.split('+')[0])
+            print("a: ",a)
+            local_name ="".join(local_name.split('+')[0].split('.'))
+            print("local_name: ", local_name)
+            email = local_name +'@' + domain_name
+            email_set.add(email)
+    return len(email_set)
+print (numemails(["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]))
