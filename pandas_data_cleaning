@@ -1,0 +1,297 @@
+# this is unrelated to the class .. It just helps displaying all outputs in a cell instead of just last one
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+import pandas as pd
+df = pd.read_csv('examples/ex4.csv')
+df
+# hey!
+a	b	c	d	message
+# just wanted to make things more difficult for you	NaN	NaN	NaN	NaN
+# who reads CSV files with computers	anyway?	NaN	NaN	NaN
+1	2	3	4	hello
+5	6	7	8	world
+9	10	11	12	foo
+df = pd.read_csv('examples/ex4.csv',skiprows=[0, 2, 3])
+df
+a	b	c	d	message
+0	1	2	3	4	hello
+1	5	6	7	8	world
+2	9	10	11	12	foo
+!cat examples/ex5.csv
+something,a,b,c,d,message
+one,1,2,3,4,NA
+two,5,6,,8,world
+three,9,10,11,12,foo
+df = pd.read_csv('examples/ex5.csv')
+df
+something	a	b	c	d	message
+0	one	1	2	3.0	4	NaN
+1	two	5	6	NaN	8	world
+2	three	9	10	11.0	12	foo
+pd.isnull(df)
+pd.isnull(df).sum()
+something	a	b	c	d	message
+0	False	False	False	False	False	True
+1	False	False	False	True	False	False
+2	False	False	False	False	False	False
+something    0
+a            0
+b            0
+c            1
+d            0
+message      1
+dtype: int64
+sentinels={'message':['NA','foo'],'something':['two']}
+pd.read_csv('examples/ex5.csv',na_values=sentinels)
+something	a	b	c	d	message
+0	one	1	2	3.0	4	NaN
+1	NaN	5	6	NaN	8	world
+2	three	9	10	11.0	12	NaN
+df
+something	a	b	c	d	message
+0	one	1	2	3.0	4	NaN
+1	two	5	6	NaN	8	world
+2	three	9	10	11.0	12	foo
+###drop null 
+df.dropna()
+something	a	b	c	d	message
+2	three	9	10	11.0	12	foo
+import numpy as np
+data=pd.DataFrame([[1,6.5,5],[1,np.nan,np.nan],[np.nan,np.nan,np.nan],[np.nan,6.5,3]])
+data
+0	1	2
+0	1.0	6.5	5.0
+1	1.0	NaN	NaN
+2	NaN	NaN	NaN
+3	NaN	6.5	3.0
+cleaned=data.dropna()
+cleaned
+0	1	2
+0	1.0	6.5	5.0
+data.dropna(how='all')
+0	1	2
+0	1.0	6.5	5.0
+1	1.0	NaN	NaN
+3	NaN	6.5	3.0
+data
+0	1	2
+0	1.0	6.5	5.0
+1	1.0	NaN	NaN
+2	NaN	NaN	NaN
+3	NaN	6.5	3.0
+data[4]=np.nan
+data
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+1	1.0	NaN	NaN	NaN
+2	NaN	NaN	NaN	NaN
+3	NaN	6.5	3.0	NaN
+data.dropna(axis=1,how='all')
+0	1	2
+0	1.0	6.5	5.0
+1	1.0	NaN	NaN
+2	NaN	NaN	NaN
+3	NaN	6.5	3.0
+data.dropna(thresh=2)
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+3	NaN	6.5	3.0	NaN
+data
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+1	1.0	NaN	NaN	NaN
+2	NaN	NaN	NaN	NaN
+3	NaN	6.5	3.0	NaN
+data.fillna(0)
+0	1	2	4
+0	1.0	6.5	5.0	0.0
+1	1.0	0.0	0.0	0.0
+2	0.0	0.0	0.0	0.0
+3	0.0	6.5	3.0	0.0
+data
+data.fillna({1:0.5,2:0})########? how about row
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+1	1.0	NaN	NaN	NaN
+2	NaN	NaN	NaN	NaN
+3	NaN	6.5	3.0	NaN
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+1	1.0	0.5	0.0	NaN
+2	NaN	0.5	0.0	NaN
+3	NaN	6.5	3.0	NaN
+data
+data.fillna(method='ffill')#####be filled with the front data
+data.fillna(method='bfill')######be filled with the back data
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+1	1.0	0.5	0.0	NaN
+2	NaN	0.5	0.0	NaN
+3	NaN	6.5	3.0	NaN
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+1	1.0	0.5	0.0	NaN
+2	1.0	0.5	0.0	NaN
+3	1.0	6.5	3.0	NaN
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+1	1.0	0.5	0.0	NaN
+2	NaN	0.5	0.0	NaN
+3	NaN	6.5	3.0	NaN
+data
+data.fillna(method='ffill')
+data.fillna(method='ffill',limit=1)
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+1	1.0	0.5	0.0	NaN
+2	NaN	0.5	0.0	NaN
+3	NaN	6.5	3.0	NaN
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+1	1.0	0.5	0.0	NaN
+2	1.0	0.5	0.0	NaN
+3	1.0	6.5	3.0	NaN
+0	1	2	4
+0	1.0	6.5	5.0	NaN
+1	1.0	0.5	0.0	NaN
+2	1.0	0.5	0.0	NaN
+3	NaN	6.5	3.0	NaN
+ 
+data = pd.DataFrame({'k1': ['one', 'two'] * 3 + ['two'],
+                     'k2': [1, 1, 2, 3, 3, 4, 4]})
+data
+k1	k2
+0	one	1
+1	two	1
+2	one	2
+3	two	3
+4	one	3
+5	two	4
+6	two	4
+data.duplicated()
+0    False
+1    False
+2    False
+3    False
+4    False
+5    False
+6     True
+dtype: bool
+data.drop_duplicates()
+k1	k2
+0	one	1
+1	two	1
+2	one	2
+3	two	3
+4	one	3
+5	two	4
+data['v1']=range(7)
+data
+k1	k2	v1
+0	one	1	0
+1	two	1	1
+2	one	2	2
+3	two	3	3
+4	one	3	4
+5	two	4	5
+6	two	4	6
+data.drop_duplicates()
+k1	k2	v1
+0	one	1	0
+1	two	1	1
+2	one	2	2
+3	two	3	3
+4	one	3	4
+5	two	4	5
+6	two	4	6
+data.drop_duplicates(['k1'])
+k1	k2	v1
+0	one	1	0
+1	two	1	1
+data.drop_duplicates(['k1','k2'])
+k1	k2	v1
+0	one	1	0
+1	two	1	1
+2	one	2	2
+3	two	3	3
+4	one	3	4
+5	two	4	5
+data.drop_duplicates(['k1','k2'],keep='last')
+k1	k2	v1
+0	one	1	0
+1	two	1	1
+2	one	2	2
+3	two	3	3
+4	one	3	4
+6	two	4	6
+data = pd.DataFrame({'food': ['bacon', 'pulled pork', 'bacon',
+                              'Pastrami', 'corned beef', 'Bacon',
+                              'pastrami', 'honey ham', 'nova lox'],
+                     'ounces': [4, 3, 12, 6, 7.5, 8, 3, 5, 6]})
+data
+food	ounces
+0	bacon	4.0
+1	pulled pork	3.0
+2	bacon	12.0
+3	Pastrami	6.0
+4	corned beef	7.5
+5	Bacon	8.0
+6	pastrami	3.0
+7	honey ham	5.0
+8	nova lox	6.0
+meat_to_animal = {
+  'bacon': 'pig',
+  'pulled pork': 'pig',
+  'pastrami': 'cow',
+  'corned beef': 'cow',
+  'honey ham': 'pig',
+  'nova lox': 'salmon'
+}
+lowercase_d=data['food'].str.lower()
+lowercase_d
+0          bacon
+1    pulled pork
+2          bacon
+3       pastrami
+4    corned beef
+5          bacon
+6       pastrami
+7      honey ham
+8       nova lox
+Name: food, dtype: object
+data['animal_source']=lowercase_d.map(meat_to_animal)
+data
+food	ounces	animal_source
+0	bacon	4.0	pig
+1	pulled pork	3.0	pig
+2	bacon	12.0	pig
+3	Pastrami	6.0	cow
+4	corned beef	7.5	cow
+5	Bacon	8.0	pig
+6	pastrami	3.0	cow
+7	honey ham	5.0	pig
+8	nova lox	6.0	salmon
+ages = [20, 22, 25, 27, 21, 23, 37, 31, 61, 45, 41, 32]
+bins=[18,25,35,60,100]
+binned_data=pd.cut(ages,bins)
+binned_data
+[(18, 25], (18, 25], (18, 25], (25, 35], (18, 25], ..., (25, 35], (60, 100], (35, 60], (35, 60], (25, 35]]
+Length: 12
+Categories (4, interval[int64]): [(18, 25] < (25, 35] < (35, 60] < (60, 100]]
+pd.value_counts(binned_data)
+(18, 25]     5
+(35, 60]     3
+(25, 35]     3
+(60, 100]    1
+dtype: int64
+group_names=['youth','adults','tired','senior']
+pd.cut(ages,bins,labels=group_names)
+[youth, youth, youth, adults, youth, ..., adults, senior, tired, tired, adults]
+Length: 12
+Categories (4, object): [youth < adults < tired < senior]
+pd.cut(ages,bins,labels=group_names).value_counts()
+youth     5
+adults    3
+tired     3
+senior    1
+dtype: int64
