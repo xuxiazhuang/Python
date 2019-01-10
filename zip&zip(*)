@@ -1,0 +1,19 @@
+players = [ "Sachin", "Sehwag", "Gambhir", "Dravid", "Raina" ]
+scores = [100, 15, 17, 28, 43 ]
+a=zip(players,scores)
+for j in a:
+	print(j)
+
+output:
+('Sachin', 100)
+('Sehwag', 15)
+('Gambhir', 17)
+('Dravid', 28)
+('Raina', 43)
+
+b=zip(*a)
+for i in b:
+	print(i)
+output:
+('Sachin', 'Sehwag', 'Gambhir', 'Dravid', 'Raina')
+(100, 15, 17, 28, 43)
