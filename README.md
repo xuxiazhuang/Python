@@ -1,12 +1,10 @@
-# Python Learning Notes
 
+# Python Questions Resources
 
-# Python Learning Resources
+https://www.analyticsvidhya.com/blog/2016/01/12-pandas-techniques-python-data-manipulation/
 
-https://www.analyticsvidhya.com/ ... -data-manipulation/
+https://www.dataschool.io/best-python-pandas-resources/
 
-https://www.dataschool.io/best-python-pandas-resources/ 
+https://www.dezyre.com/article/100-data-science-in-python-interview-questions-and-answers-for-2018/188
 
-https://www.dezyre.com/article/1 ... nswers-for-2018/188 
-
-https://www.analyticsvidhya.com/ ... n-for-data-science/
+https://www.dezyre.com/enterprise/recipe-list
