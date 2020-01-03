@@ -1,6 +1,12 @@
-  
+  1.
   import datetime
   df['my_dates'] = pd.to_datetime(df['adjusted_day'])
     df['day_of_week'] = df['my_dates'].dt.day_name()
     df['month'] = df['my_dates'].dt.month
     df['day'] = df['my_dates'].dt.day
+    
+   2.
+### before and after one date
+train['project_submitted_datetime'] = pd.to_datetime(train['project_submitted_datetime'], errors='coerce')
+print('Projests before 2016-05-17:', np.sum(train.project_submitted_datetime.dt.date < datetime.date(2016, 5, 7)))
+print('Projests after 2016-05-17:', np.sum(train.project_submitted_datetime.dt.date >= datetime.date(2016, 5, 7)))
