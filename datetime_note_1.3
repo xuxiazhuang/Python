@@ -1,0 +1,6 @@
+  
+  import datetime
+  df['my_dates'] = pd.to_datetime(df['adjusted_day'])
+    df['day_of_week'] = df['my_dates'].dt.day_name()
+    df['month'] = df['my_dates'].dt.month
+    df['day'] = df['my_dates'].dt.day
