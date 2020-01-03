@@ -1,0 +1,5 @@
+#### define function to get target categary and generate click lable 
+def label_generate(df):
+    df_null = df.loc[df.event_dt_ut_lead_event.isnull()]
+    df['click'] = np.where(df.index.isin(df_null.index), 0, 1)
+    return df  
