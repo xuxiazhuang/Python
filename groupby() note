@@ -2,6 +2,7 @@
 df['counts_of_taserterm'] = df.groupby(['hit_id'])['taser_term'].transform('nunique')
 df.head(3)
 
+groupby().agg()
 2 ##### transpose dataframe by groupby and split,combined is the column
 df_transpose = df.groupby(['hit_id']).agg({"combined":lambda x:"|".join(x)}).reset_index()
 new = df_transpose["combined"].str.split("|",n=7,expand = True)
@@ -14,3 +15,20 @@ df_transpose['taser6']= new[5]
 df_transpose['taser7']= new[6]
 df_transpose['taser8']= new[7]
 df_transpose.head(3)
+
+3
+train.groupby('school_state').agg({'project_is_approved': ['mean', 'count']}).reset_index().sort_values([('project_is_approved', 'mean')], ascending=False).reset_index(drop=True)
+
+
+school_state project_is_approved
+         mean	count
+0	DE	0.891341	589
+1	WY	0.875706	177
+2	OH	0.871467	4139
+3	CT	0.871294	2766
+4	WA	0.868050	3903
+5	WV	0.867700	839
+6	NH	0.867121	587
+7	ND	0.866935	248
+8	SC	0.864923	6463
+9	SD	0.862348	494
