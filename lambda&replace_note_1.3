@@ -1,0 +1,5 @@
+# replacing symbols which appeared due to formatting
+train['project_essay_1'] = train['project_essay_1'].apply
+(lambda x: x.replace('\\r', ' ').replace('\\n', ' ').replace('  ', ' '))
+train['project_essay_2'] = train['project_essay_2'].apply
+(lambda x: x.replace('\\r', ' ').replace('\\n', ' ').replace('  ', ' '))
