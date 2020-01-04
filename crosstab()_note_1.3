@@ -1,0 +1,14 @@
+crosstab :Compute a simple cross-tabulation of two (or more) factors. By default
+computes a frequency table of the factors unless an array of values and an
+aggregation function are passed
+
+pd.crosstab(train.teacher_prefix, train.project_is_approved, dropna=False, normalize='index')
+
+output:
+project_is_approved	0	1
+teacher_prefix		
+Dr.	0.192308	0.807692
+Mr.	0.157978	0.842022
+Mrs.	0.145915	0.854085
+Ms.	0.156948	0.843052
+Teacher	0.205777	0.794223
