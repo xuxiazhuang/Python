@@ -39,3 +39,32 @@ train['Name'].apply(len)
 3      44
 4      24
 
+e.g. train["Cabin"]
+0       NaN
+1       C85
+2       NaN
+3      C123
+4       NaN
+train['Has_Cabin'] = train["Cabin"].apply(lambda x: 0 if type(x) == float else 1)
+train['Has_Cabin']
+0      0
+1      1
+2      0
+3      1
+4      0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
