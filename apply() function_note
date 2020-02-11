@@ -1,0 +1,41 @@
+
+DataFrame.apply(self, func, axis=0, raw=False, result_type=None, args=(), **kwds)[source]¶
+Apply a function along an axis of the DataFrame.
+
+e.g. new = s.apply(lambda num : num + 5)
+e.g. 
+df
+   A  B
+0  4  9
+1  4  9
+2  4  9
+df.apply(np.sum, axis=0)
+A    12
+B    27
+
+df.apply(np.sum, axis=1)
+0    13
+1    13
+2    13
+
+df.apply(lambda x: [1, 2], axis=1)
+0    [1, 2]
+1    [1, 2]
+2    [1, 2]
+
+e.g.
+train['Name_length'] = train['Name'].apply(len)
+train['Name']
+0                                Braund, Mr. Owen Harris
+1      Cumings, Mrs. John Bradley (Florence Briggs Th...
+2                                 Heikkinen, Miss. Laina
+3           Futrelle, Mrs. Jacques Heath (Lily May Peel)
+4                               Allen, Mr. William Henry
+
+train['Name'].apply(len)
+0      23
+1      51
+2      22
+3      44
+4      24
+
