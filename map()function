@@ -1,0 +1,22 @@
+pandas.map() is used to map values from two series having one column same. For mapping two series, the last column of the first series should be same as index column of the second series, 
+also the values should be unique.
+
+e.g.
+train['Title']
+0        Mr
+1       Mrs
+2      Miss
+3       Mrs
+4        Mr
+
+ # Mapping titles
+ title_mapping = {"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Rare": 5}
+ dataset['Title'] = dataset['Title'].map(title_mapping)
+ dataset['Title'] = dataset['Title'].fillna(0)
+ 
+ train['Title']
+ 0      1
+1      3
+2      2
+3      3
+4      1
