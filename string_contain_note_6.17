@@ -1,0 +1,4 @@
+df_19FA_UG_bus = df_19FA_UG[df_19FA_UG['Primary Program'].str.contains("ECON|BUSAD|ACCTG",na=False)]
+df_19FA_UG_bus.shape
+
+select students whose major contains'ECON or BUSAD or ACCTG'.
